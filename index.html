@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Type Cast</title>
+     <link href="https://fonts.googleapis.com/css?family=Cutive+Mono|Special+Elite|Stint+Ultra+Expanded" rel="stylesheet">
+     <link rel="stylesheet" href="styles/style.css">
+
+</head>
+<body>
+     <header>
+          <div class="menu-bar">
+
+                    <div class="menu-bar-logo">
+                         <h1>Typewriter LOL</h1> 
+                    </div>
+                    <div class="menu-bar-settings">
+                         <div class="control">
+                              <h2 class="control-heading">Font</h2>
+                              <fieldset>
+                                   <div class="option">
+                                        <input type="radio" name="font" id="font1" class="font-radio font-1">
+                                        <label for="font1">Font 1</label>
+                                   </div>
+                                   <div class="option">
+                                        <input type="radio" name="font" id="font2" class="font-radio font-2">
+                                        <label for="font2">Font 2</label>
+                                   </div>
+                                   <div class="option">
+                                        <input type="radio" name="font" id="font3" class="font-radio font-3">
+                                        <label for="font3">Font 3</label>
+                                   </div>
+                              </fieldset>
+                         </div>
+                         <div class="control">
+                              <h2 class="control-heading">Brokenness</h2>
+                              <div class="control-slider">
+                                   <input type="range" id="broken" class="slider" min="1" max="100">
+                                   <label for="broken" class="visibly-hidden">Broken-ness</label>
+                              </div>
+                         </div>
+                         <div class="control">
+                              <h2 class="control-heading">Inkcartridge</h2>
+                              <div class="control-slider">
+                                   <input type="range" id="ink" class="slider" min="1" max="100">
+                                   <label for="ink" class="visibly-hidden">Ink Cartridge</label>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+               
+     </header>
+     <main>
+
+          <section class="output">
+               <div class="wrapper">
+                    <div class="page">
+                         <div class="margin">
+                              <div class="content">
+                                   <!-- interactive aspect here -->
+                                   <div class="divGoHere">
+
+                                   </div>
+                                   <div class="stop">
+                                        
+                                   </div>
+                                   <div class="bottom">
+
+                                   </div>
+                              </div>
+                              <div class="cursor">
+                                   
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </section>
+     </main>
+<script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
+<script src="js/type.js" ></script>
+</body>
+</html>

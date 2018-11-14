@@ -1,0 +1,28 @@
+$font1: 'Cutive Mono', monospace;
+$font2: 'Special Elite', monospace;
+$font3: 'Stint Ultra Expanded', monospace;
+
+body{
+     font-family: $font2;
+     letter-spacing: 1px;
+}
+
+header {
+     border: 1px solid red;
+}
+main {
+     border: 1px solid black;
+     // padding: px
+     // background: black;
+     background: lightblue;
+}
+
+.wrapper {
+     width: 80%;
+     max-width: 1080px;
+     margin: 0 auto;
+}
+
+
+
+
