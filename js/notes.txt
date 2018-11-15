@@ -1,0 +1,74 @@
+function updateCursor(value) {
+		if (value === 'moveleft') {
+				posx -= letter_width;
+		} else if (value === 'moveup') {
+				posy -= letter_height;
+		} else if (value === 'movedown') {
+				posy += letter_height;
+		} else if (value === 'moveright') {
+				posx += letter_width;
+		} else if (value === 'newline') {
+				posx = paddingx;
+				posy += letter_height;
+		}
+
+
+use to update cursor position?
+
+
+
+// constants !
+var IS_IOS = navigator.userAgent.match(/(iPad|iPhone|iPod)/g),
+		IS_TOUCH = ('ontouchstart' in docElem),
+		CLICK_EVENT = IS_TOUCH ? 'touchstart' : 'click',
+		DEVICE_PIXEL_RATIO = window.devicePixelRatio,
+		PADDINGMIN = 10,
+		PADDINGMAX = 100,
+		ALPHA_MAX = .8,
+		ALPHA_MIN = .7,
+		ALPHA_DECREMENT = 0.001,
+		ALPHA_VARIANCE = 0.05,
+		LETTER_JITTER = 0.1,
+		LETTER_ROTATE = 0.02,
+		TEXT_COLOR = 'rgb(50,40,40)',
+		CURSOR_COLOR = 'rgba(175,0,0,0.5)',
+		NAV_BUTTONS = {
+				8: 'moveleft',
+				37: 'moveleft',
+				38: 'moveup',
+				39: 'moveright',
+				40: 'movedown',
+				13: 'newline',
+		},
+		NO_AUDIO = {
+				8: 'moveleft',
+				9: 'TAB',
+				16: 'SHIFT',
+				17: 'CTRL',
+				18: 'ALT',
+				20: 'CAPSLOCK',
+				32: 'SPACE',
+				37: 'moveleft',
+				38: 'moveup',
+				39: 'moveright',
+				40: 'movedown'
+		};
+
+// variables
+var canvasWidth,
+		canvasHeight = docElem.clientHeight,
+		chars = [],
+		paddingx,
+		paddingy,
+		posx,
+		posy,
+		letter_width,
+		letter_height,
+		letter_size,
+		cursorposx,
+		cursorposy,
+		alpha,
+		is_focused,
+		jittered_char_pos = {},
+		rotated_char_pos = {},
+		char_opacity = {};

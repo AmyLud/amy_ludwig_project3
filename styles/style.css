@@ -145,8 +145,7 @@ main {
   background: lightblue; }
 
 .wrapper {
-  width: 80%;
-  max-width: 1080px;
+  max-width: 750px;
   margin: 0 auto; }
 
 .menu-bar {

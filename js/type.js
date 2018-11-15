@@ -7,14 +7,16 @@ const app = {
           height: $('.cursor').height(),
           posX: $('.cursor').position().left,
           posY: $('.cursor').position().top,
+          windowPosLeft: $('.cursor').offset().left,
      },
      content: {
           width: $('.content').width(),
+          height: $('.content').height(),
           //these can be used, but is not live. needs to be reloaded. Acceptable for phones. resizing browzer... 
-          windowPosLeft: $('.content').position().left,
-          windowPosTop: $('.content').position().top,
-          windowPosRight: $('.stop').position().left,
-          windowPosBottom: $('.bottom').position().top,
+          windowPosLeft: $('.content').offset().left,
+          windowPosTop: $('.content').offset().top,
+          windowPosRight: $('.stop').offset().left,
+          windowPosBottom: $('.bottom').offset().top,
      },
 
 
@@ -25,23 +27,23 @@ const app = {
 // const cursorLocation = `${app.cursor.posY}, ${app.cursor.posX}`;
 // console.log(`The position is ${cursorLocation}`) //top: 0, left 0;
 const runOnKeys = $('body').on('keydown', function(key){
-     console.log(key['key'], key['keyCode']);
+     // console.log(key['key'], key['keyCode']);
 
-     console.log(`
-     from Left:  ${app.content.windowPosLeft},  
-     from Top: ${app.content.windowPosTop}, 
-     from right: ${app.content.windowPosRight},  
-     from bottom: ${app.content.windowPosBottom}`);
      
 });
+console.log(`
+content width: ${app.content.width},
+content height: ${app.content.height}.
+
+`);
 
 // functions below control movement of cursor.
 //Right move
           app.cursor.rightMove = function(){
                $('body').on('keyup', function(key) {
-                    if (key['key'] !== 'ArrowLeft' && key['key'] !== 'Backspace' && key['key'] !== 'Enter' && key['key'] !== 'ArrowUp' && key['key'] !== 'ArrowDown') {
+                    if (key['key'] !== 'ArrowLeft' && key['key'] !== 'Backspace' && key['key'] !== 'Enter' && key['key'] !== 'ArrowUp' && key['key'] !== 'ArrowDown' && app.cursor.posX < (app.content.width - 40)) {
                app.cursor.ID.css("left", () => app.cursor.posX += 18);
-                         // console.log(app.cursor.posX, app.cursor.posY);
+                         return(app.cursor.posX)
 
                     }
                });
@@ -49,10 +51,8 @@ const runOnKeys = $('body').on('keydown', function(key){
 //Left Move
           app.cursor.leftMove = function() {
                $('body').on('keyup', function(key) {
-               if (key['key'] === 'ArrowLeft'|| key['key'] === 'Backspace') {
+                     if (key['key'] === 'ArrowLeft' || key['key'] === 'Backspace' && app.cursor.posX > 0) {
                     app.cursor.ID.css("left", () => app.cursor.posX -= 18 );
-                    // console.log(app.cursor.posX, app.cursor.posY);
-
                }
           });
           };
@@ -60,9 +60,8 @@ const runOnKeys = $('body').on('keydown', function(key){
 //up Move
           app.cursor.upMove = function() {
                $('body').on('keyup', function(key) {
-                    if (key['key'] === 'ArrowUp' && key['key'] !== 'ArrowDown') {
+                     if (key['key'] === 'ArrowUp' && key['key'] !== 'ArrowDown' && app.cursor.posY > 0) {
                     app.cursor.ID.css("top", () => app.cursor.posY -= 25 );
-                         // console.log(app.cursor.posX, app.cursor.posY);
 
                }
           });
@@ -70,9 +69,8 @@ const runOnKeys = $('body').on('keydown', function(key){
 //down Move
           app.cursor.downMove = function() {
                $('body').on('keyup', function(key) {
-                    if (key['key'] === 'ArrowDown' && key['key'] !== 'ArrowUp' && key['key']) {
+                    if (key['key'] === 'ArrowDown' && key['key'] !== 'ArrowUp' && key['key'] !== 'Enter' && app.cursor.posY < (app.content.height - 50)) {
                     app.cursor.ID.css("top", () => app.cursor.posY += 25 );
-                         // console.log(app.cursor.posX, app.cursor.posY);
 
                }
           });
@@ -81,15 +79,13 @@ const runOnKeys = $('body').on('keydown', function(key){
 //New Line
           app.cursor.newLine = function(){
                $('body').on('keydown', function (key) {
-                    if (key['key'] === 'Enter') {
+                     if (key['key'] === 'Enter' && app.cursor.posY < (app.content.height - 50)) {
                          app.cursor.ID.css("left", function () {
-                                   console.log(app.cursor.posX)
                                    app.cursor.posX = 0;
                                    return (app.cursor.posX);
                               });
                          app.cursor.ID.css("top", function () {
                                    app.cursor.posY = (app.cursor.posY + 20);
-                                   // console.log(app.cursor.posX, app.cursor.posY);
                                    return (app.cursor.posY);
                               });
                     } 
@@ -99,12 +95,11 @@ const runOnKeys = $('body').on('keydown', function(key){
 
 // combined two cursor move functions
 app.cursor.cursorMove = () => {
-     
-          app.cursor.leftMove();
-          app.cursor.rightMove();
-          app.cursor.newLine();
-          app.cursor.upMove();
-          app.cursor.downMove();
+      app.cursor.rightMove();
+      app.cursor.newLine();
+      app.cursor.leftMove();
+      app.cursor.upMove();
+      app.cursor.downMove();
           // console.log(`The position is Top: ${app.cursor.posY} Left: ${app.cursor.posX}`) //top: 0, left 0;
 
 }
