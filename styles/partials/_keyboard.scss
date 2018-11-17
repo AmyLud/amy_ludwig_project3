@@ -1,0 +1,75 @@
+
+.keyboard {
+     position: fixed;
+     background: grey;
+     // border: 1px solid red;
+     bottom: 0;
+     width: 100%;
+     .typewriter-body {
+          max-width: 800px;
+          border-radius: 20px;
+          margin: 0 auto;
+          background: #232323;
+          padding: 10px 0;
+     }
+
+}
+
+.keyboard-wrap {
+
+     // border: 1px solid red;
+     max-width: 750px;
+     width: 90%;
+     margin: 10px auto 10px;
+     font-size: 1.5rem;
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-end;
+     .keyrow {
+          // border: 1px solid blue;
+          display: flex;
+          justify-content: center;
+          padding: 0 5px;
+
+          .key {
+               flex: 1 0 6.9%;
+               height: 40px;
+               text-align: center;
+               padding-top: 7px;
+               color: #232323;
+               background: #FAFAFA;
+               margin: 2px;
+               // border: 5px solid rgb(221, 220, 220);
+               border-radius: 50%;
+               display: flex;
+               flex-direction: column;
+               justify-content: center;
+               box-shadow: 2px 2px 0 grey;
+
+          }
+          .key-symbol {
+               font-size: 2.5rem;
+               flex: 0 0 8%;
+               
+          }
+          .key-w2, .key-w3 {
+               flex: 2 0 6.8%;
+               border-radius: 20px;
+          }
+          .space-bar {
+               flex: 0 0 50%;
+               border-radius: 20px;               
+          }
+
+     }
+     .fifth-row {
+          justify-content: flex-end;
+     }
+
+}
+
+
+.keyrow > div[data-pressed],
+.keyrow > div:active {
+     background: #AAAAAA;
+}

@@ -14,32 +14,25 @@
           <div class="menu-bar">
 
                     <div class="menu-bar-logo">
-                         <h1>Typewriter LOL</h1> 
+                         <h1>Typewriter</h1> 
                     </div>
                     <div class="menu-bar-settings">
-                         <div class="control">
-                              <h2 class="control-heading">Font</h2>
-                              <fieldset>
-                                   <div class="option">
-                                        <input type="radio" name="font" id="font1" class="font-radio font-1">
-                                        <label for="font1">Font 1</label>
+                         <div class="controls">
+                              <div class="control">
+                                   <div class="control-slider">
+                                        <label for="ink" class="slide-label">Jankiness</label>
+                                        <input type="range" id="broken" class="jank-slider" min="0" max="100" onchange="app.updateJankInput(this.value);">
                                    </div>
-                                   <div class="option">
-                                        <input type="radio" name="font" id="font2" class="font-radio font-2">
-                                        <label for="font2">Font 2</label>
-                                   </div>
-                                   <div class="option">
-                                        <input type="radio" name="font" id="font3" class="font-radio font-3">
-                                        <label for="font3">Font 3</label>
-                                   </div>
-                              </fieldset>
-                         </div>
-                         <div class="control">
-                              <h2 class="control-heading">Inkcartridge</h2>
-                              <div class="control-slider">
-                                   <input type="range" id="ink" class="slider" min="1" max="100">
-                                   <label for="ink" class="visibly-hidden">Ink Cartridge</label>
                               </div>
+                              <div class="control">
+                                   <div class="control-slider">
+                                        <label for="ink" class="slide-label">Ink</label>
+                                        <input type="range" id="ink" class="ink-slider" min="1" max="200" onchange="app.updateInkInput(this.value);">
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="clear">
+                              <a href="#">Clear</a>
                          </div>
                     </div>
                </div>
@@ -53,15 +46,6 @@
                          <div class="margin">
                               <div class="content">
                                    <!-- interactive aspect here -->
-                                   <div class="divGoHere">
-
-                                   </div>
-                                   <div class="stop">
-                                        
-                                   </div>
-                                   <div class="bottom">
-
-                                   </div>
                               </div>
                               <div class="cursor">
                                    
@@ -69,6 +53,214 @@
                          </div>
                     </div>
                </div>
+          </section>
+          <section class="keyboard">
+               <div class="typewriter-body">
+                    <div class="keyboard-wrap">
+                         <div class="keyrow first-row">
+                              <div class="key-double key" data-value="`">
+                                   <div>~</div>
+                                   <div>`</div>
+                              </div>
+                              <div class="key-double key" data-value="1">
+                                   <div>!</div>
+                                   <div>1</div>
+                              </div>
+                              <div class="key-double key" data-value="2">
+                                   <div>@</div>
+                                   <div>2</div>
+                              </div>
+                              <div class="key-double key" data-value="3">
+                                   <div>#</div>
+                                   <div>3</div>
+                              </div>
+                              <div class="key-double key" data-value="4">
+                                   <div>$</div>
+                                   <div>4</div>
+                              </div>
+                              <div class="key-double key" data-value="5">
+                                   <div>%</div>
+                                   <div>5</div>
+                              </div>
+                              <div class="key-double key" data-value="6">
+                                   <div>^</div>
+                                   <div>6</div>
+                              </div>
+                              <div class="key-double key" data-value="7">
+                                   <div>&</div>
+                                   <div>7</div>
+                              </div>
+                              <div class="key-double key" data-value="8">
+                                   <div>*</div>
+                                   <div>8</div>
+                              </div>
+                              <div class="key-double key" data-value="9">
+                                   <div>(</div>
+                                   <div>9</div>
+                              </div>
+                              <div class="key-double key" data-value="0">
+                                   <div>)</div>
+                                   <div>0</div>
+                              </div>
+                              <div class="key-double key" data-value="-">
+                                   <div>_</div>
+                                   <div>-</div>
+                              </div>
+                              <div class="key-double key" data-value="=">
+                                   <div>+</div>
+                                   <div>=</div>
+                              </div>
+                              <div class="key-symbol key-w2 key" data-value="Backspace">
+                                   <div>&#x21a4</div>
+                              </div>
+                         </div>
+                         <div class="keyrow second-row">
+                              <div class="key-letter key" data-value="q">
+                                   <div>Q</div>
+                              </div>
+                              <div class="key-letter key" data-value="w">
+                                   <div>W</div>
+                              </div>
+                              <div class="key-letter key" data-value="e">
+                                   <div>E</div>
+                              </div>
+                              <div class="key-letter key" data-value="r">
+                                   <div>R</div>
+                              </div>
+                              <div class="key-letter key" data-value="t">
+                                   <div>T</div>
+                              </div>
+                              <div class="key-letter key" data-value="y">
+                                   <div>Y</div>
+                              </div>
+                              <div class="key-letter key" data-value="u">
+                                   <div>U</div>
+                              </div>
+                              <div class="key-letter key" data-value="i">
+                                   <div>I</div>
+                              </div>
+                              <div class="key-letter key" data-value="o">
+                                   <div>O</div>
+                              </div>
+                              <div class="key-letter key" data-value="p">
+                                   <div>P</div>
+                              </div>
+                              <div class="key-double key" data-value="[">
+                                   <div>{</div>
+                                   <div>[</div>
+                              </div>
+                              <div class="key-double key" data-value="]">
+                                   <div>}</div>
+                                   <div>]</div>
+                              </div>
+                              <div class="key-double key" data-value="\">
+                                   <div>|</div>
+                                   <div>\</div>
+                              </div>
+                         </div>
+                         <div class="keyrow third-row">
+                              <!-- NOT USING CAMEL CASE, THIS IS JUST THE KEY OF Capslock... pinky swear -->
+                              <div class="key-word key-w3 key" data-value="CapsLock">
+                                   <div>cap</div>
+                                   <div class="indicator"></div>
+                              </div>
+                              <div class="key-letter key" data-value="a">
+                                   <div>A</div>
+                              </div>
+                              <div class="key-letter key" data-value="s">
+                                   <div>S</div>
+                              </div>
+                              <div class="key-letter key" data-value="d">
+                                   <div>D</div>
+                              </div>
+                              <div class="key-letter key" data-value="f">
+                                   <div>F</div>
+                              </div>
+                              <div class="key-letter key" data-value="g">
+                                   <div>G</div>
+                              </div>
+                              <div class="key-letter key" data-value="h">
+                                   <div>H</div>
+                              </div>
+                              <div class="key-letter key" data-value="j">
+                                   <div>J</div>
+                              </div>
+                              <div class="key-letter key" data-value="k">
+                                   <div>K</div>
+                              </div>
+                              <div class="key-letter key" data-value="l">
+                                   <div>L</div>
+                              </div>
+                              <div class="key-double key" data-value=";">
+                                   <div>:</div>
+                                   <div>;</div>
+                              </div>
+                              <div class="key-double key" data-value="'">
+                                   <div>"</div>
+                                   <div>'</div>
+                              </div>
+                              <div class="key-symbol key-w3 key" data-value="Enter">
+                                   <div>&#x21b5</div>
+                              </div>
+                         </div>
+                         <div class="keyrow fourth-row">
+                              <div class="key-word key-w3 key" data-value="Shift">
+                                   <div>shift</div>
+                              </div>
+                              <div class="key-letter key" data-value="z">
+                                   <div>Z</div>
+                              </div>
+                              <div class="key-letter key" data-value="x">
+                                   <div>X</div>
+                              </div>
+                              <div class="key-letter key" data-value="c">
+                                   <div>C</div>
+                              </div>
+                              <div class="key-letter key" data-value="v">
+                                   <div>V</div>
+                              </div>
+                              <div class="key-letter key" data-value="b">
+                                   <div>B</div>
+                              </div>
+                              <div class="key-letter key" data-value="n">
+                                   <div>N</div>
+                              </div>
+                              <div class="key-letter key" data-value="m">
+                                   <div>M</div>
+                              </div>
+                              <div class="key-double key" data-value=",">
+                                   <div>&lt;</div>
+                                   <div>,</div>
+                              </div>
+                              <div class="key-double key" data-value=".">
+                                   <div>&gt;</div>
+                                   <div>.</div>
+                              </div>
+                              <div class="key-double key" data-value="/">
+                                   <div>?</div>
+                                   <div>/</div>
+                              </div>
+                         </div>
+                         <div class="keyrow fifth-row">
+                              <div class="space-bar key" data-value=" ">
+
+                              </div>
+                              <div class="key-symbol arrow key" data-value="ArrowUp">
+                                   <div>&#x2191</div>
+                              </div>
+                              <div class="key-symbol arrow key" data-value="ArrowLeft">
+                                   <div>&#x2190</div>
+                              </div>
+                              <div class="key-symbol arrow key" data-value="ArrowRight">
+                                   <div>&#x2192</div>
+                              </div>
+                              <div class="key-symbol arrow key" data-value="ArrowDown">
+                                   <div>&#x2193</div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+
           </section>
      </main>
 <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>

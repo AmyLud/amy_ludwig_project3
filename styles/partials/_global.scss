@@ -1,20 +1,25 @@
 $font1: 'Cutive Mono', monospace;
 $font2: 'Special Elite', monospace;
-$font3: 'Stint Ultra Expanded', monospace;
+
+html {
+     font-size: 62.5%;
+}
 
 body{
+     font-size: 2rem;
      font-family: $font2;
      letter-spacing: 1px;
+     // overflow: hidden;
 }
 
 header {
-     border: 1px solid red;
+     // border: 1px solid red;
 }
 main {
-     border: 1px solid black;
+     border: 1px solid rgba(000,000,000,0);
      // padding: px
      // background: black;
-     background: lightblue;
+     background: grey;
 }
 
 .wrapper {
@@ -23,6 +28,18 @@ main {
      margin: 0 auto;
 }
 
+.visually-hidden:not(:focus):not(:active) {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          margin: -1px;
+          border: 0;
+          padding: 0;
+          white-space: nowrap;
+          clip-path: inset(100%);
+          clip: rect(0 0 0 0);
+          overflow: hidden;
+    }
 
 
 
