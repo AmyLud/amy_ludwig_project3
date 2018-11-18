@@ -1,4 +1,5 @@
 $font1: 'Special Elite', monospace;
+$font2: 'Amatic SC', cursive;
 
 html {
      font-size: 62.5%;
@@ -13,12 +14,13 @@ body{
 
 header {
      // border: 1px solid red;
+     font-family: $font2;
 }
 main {
      border: 1px solid rgba(000,000,000,0);
      // padding: px
      // background: black;
-     background: grey;
+     background: #505050;
 }
 
 .wrapper {

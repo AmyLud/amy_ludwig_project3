@@ -5,16 +5,21 @@
      padding: 10px 20px;
      background-color: white;
      width: 100%;
-     z-index: 10;
+     // z-index: 10;
      display: flex;
      justify-content: space-between;
      .controls {
           // border: 1px solid blue;
           padding: 10px;
+          width: 50%;
+          margin: 0 20px;
+          // flex: 1 0 50%;
           // align-self: flex-end;
      }
      &-settings {
           display: flex;
+          flex: 1 0 50%;
+          justify-content: flex-end;
           // border: 1px solid red;
 
 
@@ -23,8 +28,13 @@
           }
 
      }
+     &-logo {
+          width: 20%;
+     }
      h1 {
-          font-size: 3rem;
+          font-size: 4rem;
+          // width: 30%;
+          margin: 5px 0;
           
      }
 }
@@ -35,36 +45,49 @@
      // border: 1px solid black;
      display: flex;
      justify-content: flex-end;
-     padding: 10px 20px;
-     width: 30%;
+     padding: 10px 0px;
+     // width: 30%;
      a {
           text-decoration: none;
           border-radius: 20px;
           border-bottom: 1px solid black;
-          background: #383838;
-          color: #FAFAFA;
-          height: 45px;
+          // background: #383838;
+          // color: #FAFAFA;
+          height: 50px;
           display: block;
           padding: 10px;
           text-align: center;
           display: flex;
           flex-direction: column;
           justify-content: center;
-          box-shadow: 1px 3px 0 grey;
-          border-left: 1px solid #232323;
-          border-bottom: 2px solid #232323;
-          border-right: 1px solid #232323;
+          color: #232323;
+               background: #FAFAFA;
+               box-shadow: 1px 1px 0 white, 2px 3px 0 #232323;
+               border: 1px solid black;
+               border-bottom: 2px solid black;
+          &:hover {
+               color: #FAFAFA;
+               background: #232323;
+               transition: color, background, 0.2s;
+          }
      }
      .settings-icon {
           display: none;
+          border-radius: 50%;
           margin: 0 20px;
-          // border: 1px solid red;
-          min-width: 50px;
-          width: 50px;
+          min-width: 60px;
+          width: 60px;
 
           img {
                width: 100%;
                display: block;
           }
+
+          .checkbox {
+               display: none;
+          }
+
      }
+
+     
 }

@@ -4,8 +4,15 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-     <title>Type Cast</title>
-     <link href="https://fonts.googleapis.com/css?family=Cutive+Mono|Special+Elite|Stint+Ultra+Expanded" rel="stylesheet">
+     <title>Cha Chiiiing</title>
+     <link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png">
+     <link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png">
+     <link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png">
+     <link rel="manifest" href="favicon_package_v0.16/site.webmanifest">
+     <link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#000000">
+     <meta name="msapplication-TileColor" content="#2b5797">
+     <meta name="theme-color" content="#ffffff">
+     <link href="https://fonts.googleapis.com/css?family=Special+Elite|Amatic+SC:700" rel="stylesheet">
      <link rel="stylesheet" href="styles/style.css">
 
 </head>
@@ -17,24 +24,24 @@
                          <h1>Cha-Ching</h1> 
                     </div>
                     <div class="menu-bar-settings">
-                         <div class="controls">
+                         <div class="controls control-closed">
                               <div class="control">
                                    <div class="control-slider">
                                         <label for="ink" class="slide-label">Jankiness</label>
-                                        <input type="range" id="broken" class="jank-slider" min="0" max="100" onchange="app.updateJankInput(this.value);">
+                                        <input type="range" id="broken" class="jank-slider slider" min="0" max="100" onchange="app.updateJankInput(this.value);">
                                    </div>
                               </div>
                               <div class="control">
                                    <div class="control-slider">
                                         <label for="ink" class="slide-label">Ink</label>
-                                        <input type="range" id="ink" class="ink-slider" min="1" max="200" onchange="app.updateInkInput(this.value);">
+                                        <input type="range" id="ink" class="ink-slider slider" min="1" max="250" value="250" onchange="app.updateInkInput(this.value);">
                                    </div>
                               </div>
                          </div>
                          <div class="buttons">
-                              <div class="settings-icon">
-                                   <input type="checkbox" id="settings">
-                                   <label for="settings"><img src="styles/assets/settings.png" alt="Settings icon"></label>
+                              <div class="settings-icon glow">
+                                   <input type="checkbox" id="settings" class="checkbox">
+                                   <label for="settings"><img src="styles/assets/1604020-200.png" alt="Settings icon"></label>
                               </div>
                               <div class="clear">
                                    <a href="#">Clear</a>

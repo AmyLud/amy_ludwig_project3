@@ -64,7 +64,7 @@ const app = {
       input: {
             ink: $('.ink-slider'),
             inkValue: $('.ink-slider').val(),
-            inkMax: 200,
+            inkMax: 250,
             inkMin: 1,
             jank: $('.jank-slider'),
             jankValue: $('.jank-slider').val(),
@@ -342,6 +342,27 @@ app.clearAll = () => {
 
 
 //------------------functions above control clear screen. ----------------------
+//------------------functions below control responsive settings panel. ----------------------
+
+app.openSesame = function() {
+      $('#settings').change(function () {
+            if ($(this).is(':checked')) {
+                  // console.log('Checked');
+                  $('.controls').removeClass('control-closed')
+                  $('.controls').addClass('control-open')
+            } else {
+                  // console.log('Unchecked');
+                  $('.controls').removeClass('control-open')
+                  $('.controls').addClass('control-closed')
+            }
+      });
+
+
+};
+
+
+
+//------------------functions above control responsive settings panel. ----------------------
 //------------------ Init function and Doc ready  ----------------------------
 
 //Doc ready
@@ -349,10 +370,11 @@ app.clearAll = () => {
 app.typeInit = () => {
       app.preventKeyFunc();
       app.divPlace();
-     app.cursor.cursorMove();
-     app.keyboardSim();
-     app.keyboardReverseSim();
-     app.clearAll();
+      app.cursor.cursorMove();
+      app.keyboardSim();
+      app.keyboardReverseSim();
+      app.clearAll();
+      app.openSesame();
 
 };
 

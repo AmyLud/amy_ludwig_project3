@@ -1,0 +1,63 @@
+@media (max-width: 750px) {
+     .buttons {
+          .settings-icon {
+               display: block;
+          }
+
+
+
+     }
+
+     .menu-bar {
+     // border: 1px solid green;
+     // padding: 10px 20px;
+     // background-color: white;
+     // width: 100%;
+     // z-index: 10;
+     // display: ;
+     // justify-content: space-between;
+     // position: relative;
+          &-settings {
+               // position: relative;
+          }
+          .controls {
+               // border: 1px solid blue;
+               // padding: 10px;
+               // padding: 0px;
+               color: #FAFAFA;
+               background: #505050;
+               overflow: hidden;
+               margin: 0;
+               position: absolute;
+               width: 100%;
+               top: 110px;
+               left: 0px;
+               z-index: 1000;
+               transition-property: height, opacity;
+               transition-duration: 0.3s, 0.3s;
+          }
+          
+          div.control-open {
+               padding: 25px;
+               // height: ;
+               opacity: 1;
+               transition-property: height, opacity;
+               transition-duration: 0.3s, 0.3s;
+               
+          }
+          
+          div.control-closed {
+               padding: 0px;
+               height: 0;
+               opacity: 0;
+               transition-property: height, opacity;
+               transition-duration: 0.3s, 0.3s;
+               
+
+          }
+
+           &-logo {
+               width: 70%;
+           }
+     }
+}
