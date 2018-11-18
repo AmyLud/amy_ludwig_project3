@@ -11,8 +11,7 @@
       // 4) keyboard functions
             // a) make clicking keys equal to keystrokes on keyboard
             // b) make keystrokes on board add styling to that key on virtual keyboard
-      // 5) Font change function*************************************************************
-      // 6) Clear page function
+      // 5) Clear page function
 
 //---App Init and Doc ready---
 
@@ -71,7 +70,8 @@ const app = {
             jankValue: $('.jank-slider').val(),
             jankMax: 100,
             jankMin: 0,
-      }
+      },
+
 };
 
 //------------------END APP OBJECT----------------------
@@ -136,6 +136,9 @@ app.preventKeyFunc = () => {document.documentElement.addEventListener('keydown',
                      && key['key'] !== 'Tab' 
                      && app.cursor.posY > 1) {
                     app.cursor.ID.css("top", () => app.cursor.posY -= 25 );
+                  if ($('.correction-tape').hasClass('activate')) {
+                        $('.correction-tape').addClass('corrected');
+                  }
 
                }
           });
@@ -150,6 +153,9 @@ app.preventKeyFunc = () => {document.documentElement.addEventListener('keydown',
                      && key['key'] !== 'Tab' 
                      && app.cursor.posY < (app.content.height - 50)) {
                     app.cursor.ID.css("top", () => app.cursor.posY += 25 );
+                    if ($('.correction-tape').hasClass('activate')) {
+                          $('.correction-tape').addClass('corrected');
+                    }
                }
           });
           };
@@ -170,9 +176,12 @@ app.preventKeyFunc = () => {document.documentElement.addEventListener('keydown',
                                    app.cursor.posY = (app.cursor.posY + 25);
                                    return (app.cursor.posY);
                               });
-                    } 
-               });
-               };
+                         if ($('.correction-tape').hasClass('activate')) {
+                              $('.correction-tape').addClass('corrected');
+                         }                    
+                  } 
+            });
+       };
 
 //------------------functions above control movement of cursor. --------------------
 //------------------functions above control ALL movement of cursor. ----------------
@@ -197,7 +206,10 @@ app.divPlace = () => {
             && (app.isInArray(key['key'], app.keys.funKeys) ===false )){
                   // console.log(key['key']) OMG IT woRKED!
                   // console.log(app.cursor.posY, app.cursor.posX)
-                  if (key['keyCode'] !== 32) {
+                  app.generateMeDude();
+                  app.generateMeDudette();
+                  // console.log(app.randomDegree);
+                  if (key['keyCode'] !== 32 && key['key'] !== ' ') {
                         app.input.inkValue--;
                         app.input.ink.prop('value', (app.input.inkValue-1));
                   }
@@ -205,13 +217,15 @@ app.divPlace = () => {
                   style="
                   opacity: ${(app.input.inkValue)/app.input.inkMax};
                   padding: 0;
+                  color: black;
                   width: 18px;
                   height: 25px;
                   text-align: center;
                   line-height: 25px;
                   position: absolute; 
+                  transform: rotate(${app.randomDegree}deg);
                   left: ${app.cursor.posX}px;
-                  top: ${app.cursor.posY}px;
+                  top: ${app.cursor.posY + (app.randomNudge)}px;
                   ">
                   ${key['key']}</div>`)
             };
@@ -220,25 +234,30 @@ app.divPlace = () => {
 
 //--------Broken idea:
 
-//brokenness adjusts tilt of letters randomly between an absolute max of 5deg +/-. max = {0tilt - (app.input.brokenValue)/20}
-
-//dividing each by 20 leads to a max/min of 5degrees +/- as 100(max value of brokenness)/20 = 5. lowest possible value is 0, goes up by 0.05degrees for each point of brokenness ****START HERE****
-
-//also would take position top and move it by +/- 1px at min or +/- 2pxat mid or +/- 3px at max
-
-//transform: rotate((*RANDOM NUMBER GENERATED ON JANK VALUE*)deg);
-
-
-
-
-//Also, threw in these two little functions to update the Ink and Jank factor. this is called through the actual HTML (in the range input as an attribute) so it's fully dynamic :)
-
 app.updateInkInput = (value) => {
       app.input.inkValue = value;
-}
+};
 app.updateJankInput = (value) => {
       app.input.jankValue = value
-}
+};
+//Below generates the random (tilt and nudging) jankiness based on the user input.
+app.generateMeDude =  () => {
+      app.randomDegree = Math.floor(Math.random() * (app.input.jankValue/10 + 1)); 
+      if (app.randomDegree !== 0) {
+      app.randomDegree *= Math.floor(Math.random() * 2) == 1 ? 1 : -1; 
+      } 
+      return app.randomDegree
+};
+
+app.generateMeDudette = () => {
+      app.randomNudge = Math.floor(Math.random() * (app.input.jankValue / 32));
+      if (app.randomNudge !== 0) {
+            app.randomNudge *= Math.floor(Math.random() * 2) == 1 ? 1 : -1;
+      }
+      return app.randomNudge
+};
+
+
 
 //------------------functions above control letter placement. --------------
 //------------------functions below control keyboard. ----------------------
@@ -257,19 +276,34 @@ app.keyboardSim = function() {
                   $(this).trigger(app.keyEventPress); // that key trigger that event
             }
             $(this).trigger(app.keyEventUp); // that key trigger that event
+            $(this).addClass('keyPressed');
+            $('.key').not(this).removeClass('keyPressed');
+
       });
 }
 
+//And let's make the real keyboard interact with the vitual one.
+
+app.keyboardReverseSim = function() {
+      // if ()
+      $('body').on('keypress', (key) => {
+            $('.key').removeClass('keyPressed');
+           $('.key[data-value="' + key['key'] + '"]').addClass('keyPressed');
+
+           
+      });
+      $('body').on('keyup', (key) => {
+           $('.key[data-value="' + key['key'] + '"]').removeClass('keyPressed');           
+      });
+
+};
 
 
-//makes keyboard affect the typewriter
+
 // $('body').on('keydown', function (e) {
 //       app.pressedKey = getKey(e);
-//       if (!key) {
-//             return console.warn('No key for', e.keyCode);
-//       }
 
-//       key.setAttribute('data-pressed', 'on');
+//       key.setAttribute('background-color', 'white');
 // });
 // $('body').on('keyup', function (e) {
 //       app.pressedKey = getKey(e);
@@ -279,14 +313,6 @@ app.keyboardSim = function() {
 
 
 //------------------functions above control keyboard. ----------------------
-//------------------functions below control font change. ----------------------
-
-
-
-
-
-
-//------------------functions above control font change. ----------------------
 //------------------functions below control clear screen. ----------------------
 
 
@@ -305,6 +331,12 @@ app.clearAll = () => {
             });
             app.input.inkValue = app.input.inkMax;
             app.input.ink.prop('value', app.input.inkMax);
+            app.input.jankValue = app.input.jankMin;
+            app.input.jank.prop('value', app.input.jankMin);
+            $('.key').removeClass('keyPressed');
+            $('.clear').blur();
+            $('body').focus();
+
       });
 }
 
@@ -319,6 +351,7 @@ app.typeInit = () => {
       app.divPlace();
      app.cursor.cursorMove();
      app.keyboardSim();
+     app.keyboardReverseSim();
      app.clearAll();
 
 };

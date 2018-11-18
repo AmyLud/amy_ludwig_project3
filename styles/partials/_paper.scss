@@ -16,12 +16,13 @@
           height: 100%;
      }
      .cursor {
-          border-bottom: 3px solid black;
+          border-bottom: 3px solid red;
           height: 25px;
           width: 18px;
           position: absolute;
           top: 0px;
           left: 0px;
+          z-index: 100;
      }
      .stop {
           border: 1px solid red;

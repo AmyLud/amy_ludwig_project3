@@ -173,44 +173,59 @@ main {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between; }
+  .menu-bar .controls {
+    padding: 10px; }
   .menu-bar-settings {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex; }
-    .menu-bar-settings .control {
-      padding: 0 20px; }
-    .menu-bar-settings fieldset {
-      padding: 0;
-      width: 100%;
-      border: none;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-      justify-content: space-between; }
     .menu-bar-settings input[type=range] {
       width: 100%; }
-    .menu-bar-settings a {
-      text-decoration: none;
-      background: #383838;
-      color: #FAFAFA;
-      display: block;
-      height: 100%;
-      padding: 15px;
-      text-align: center;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center; }
-    .menu-bar-settings .control-heading {
-      margin: 10px 0; }
+  .menu-bar h1 {
+    font-size: 3rem; }
+
+.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 10px 20px;
+  width: 30%; }
+  .buttons a {
+    text-decoration: none;
+    border-radius: 20px;
+    border-bottom: 1px solid black;
+    background: #383838;
+    color: #FAFAFA;
+    height: 45px;
+    display: block;
+    padding: 10px;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-shadow: 1px 3px 0 grey;
+    box-shadow: 1px 3px 0 grey;
+    border-left: 1px solid #232323;
+    border-bottom: 2px solid #232323;
+    border-right: 1px solid #232323; }
+  .buttons .settings-icon {
+    display: none;
+    margin: 0 20px;
+    min-width: 50px;
+    width: 50px; }
+    .buttons .settings-icon img {
+      width: 100%;
+      display: block; }
 
 .page {
   margin: 20px 0 200px 0;
@@ -227,12 +242,13 @@ main {
     width: 100%;
     height: 100%; }
   .page .cursor {
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid red;
     height: 25px;
     width: 18px;
     position: absolute;
     top: 0px;
-    left: 0px; }
+    left: 0px;
+    z-index: 100; }
   .page .stop {
     border: 1px solid red;
     height: 100%;
@@ -253,10 +269,28 @@ main {
   width: 100%; }
   .keyboard .typewriter-body {
     max-width: 800px;
+    width: 100%;
+    border: 2px solid black;
+    border-bottom: 4px solid black;
     border-radius: 20px;
     margin: 0 auto;
-    background: #232323;
-    padding: 10px 0; }
+    background: #dddddd;
+    padding: 10px 0;
+    position: relative; }
+    .keyboard .typewriter-body::before {
+      content: '';
+      border: 2px solid #353535;
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: white;
+      z-index: -1;
+      -webkit-transform: translate3d(-50%, -50%, 0) scale(1.01);
+      transform: translate3d(-50%, -50%, 0) scale(1.01);
+      border-radius: 20px; }
 
 .keyboard-wrap {
   max-width: 750px;
@@ -291,7 +325,7 @@ main {
       color: #232323;
       background: #FAFAFA;
       margin: 2px;
-      border-radius: 50%;
+      border-radius: 20px;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -302,8 +336,17 @@ main {
       -webkit-box-pack: center;
       -ms-flex-pack: center;
       justify-content: center;
-      -webkit-box-shadow: 2px 2px 0 grey;
-      box-shadow: 2px 2px 0 grey; }
+      -webkit-box-shadow: 1px 1px 0 white, 2px 3px 0 #232323;
+      box-shadow: 1px 1px 0 white, 2px 3px 0 #232323;
+      border-left: 1px solid black;
+      border-bottom: 2px solid black;
+      border-right: 1px solid black;
+      -webkit-transition: color, background, 0.2s;
+      -o-transition: color, background, 0.2s;
+      transition: color, background, 0.2s; }
+    .keyboard-wrap .keyrow .keyPressed {
+      color: #FAFAFA;
+      background: #232323; }
     .keyboard-wrap .keyrow .key-symbol {
       font-size: 2.5rem;
       -webkit-box-flex: 0;
@@ -312,13 +355,11 @@ main {
     .keyboard-wrap .keyrow .key-w2, .keyboard-wrap .keyrow .key-w3 {
       -webkit-box-flex: 2;
       -ms-flex: 2 0 6.8%;
-      flex: 2 0 6.8%;
-      border-radius: 20px; }
+      flex: 2 0 6.8%; }
     .keyboard-wrap .keyrow .space-bar {
       -webkit-box-flex: 0;
       -ms-flex: 0 0 50%;
-      flex: 0 0 50%;
-      border-radius: 20px; }
+      flex: 0 0 50%; }
   .keyboard-wrap .fifth-row {
     -webkit-box-pack: end;
     -ms-flex-pack: end;

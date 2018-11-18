@@ -1,5 +1,4 @@
-$font1: 'Cutive Mono', monospace;
-$font2: 'Special Elite', monospace;
+$font1: 'Special Elite', monospace;
 
 html {
      font-size: 62.5%;
@@ -7,7 +6,7 @@ html {
 
 body{
      font-size: 2rem;
-     font-family: $font2;
+     font-family: $font1;
      letter-spacing: 1px;
      // overflow: hidden;
 }

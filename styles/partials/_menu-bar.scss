@@ -5,43 +5,66 @@
      padding: 10px 20px;
      background-color: white;
      width: 100%;
-     // position: fixed;
      z-index: 10;
      display: flex;
      justify-content: space-between;
+     .controls {
+          // border: 1px solid blue;
+          padding: 10px;
+          // align-self: flex-end;
+     }
      &-settings {
           display: flex;
           // border: 1px solid red;
-          .control {
-               padding: 0 20px;
-               // width: 70%;
-          }
-          fieldset {
-               // border: 1px solid red;
-               padding: 0;
-               width: 100%;
-               border: none;
-               display: flex;
-               justify-content: space-between;
-          }
+
+
           input[type=range] {
                width: 100%;
           }
 
-          a {
-               text-decoration: none;
-               background: #383838;
-               color: #FAFAFA;
+     }
+     h1 {
+          font-size: 3rem;
+          
+     }
+}
+
+
+
+.buttons {
+     // border: 1px solid black;
+     display: flex;
+     justify-content: flex-end;
+     padding: 10px 20px;
+     width: 30%;
+     a {
+          text-decoration: none;
+          border-radius: 20px;
+          border-bottom: 1px solid black;
+          background: #383838;
+          color: #FAFAFA;
+          height: 45px;
+          display: block;
+          padding: 10px;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          box-shadow: 1px 3px 0 grey;
+          border-left: 1px solid #232323;
+          border-bottom: 2px solid #232323;
+          border-right: 1px solid #232323;
+     }
+     .settings-icon {
+          display: none;
+          margin: 0 20px;
+          // border: 1px solid red;
+          min-width: 50px;
+          width: 50px;
+
+          img {
+               width: 100%;
                display: block;
-               height: 100%;
-               padding: 15px;
-               text-align: center;
-               display: flex;
-               flex-direction: column;
-               justify-content: center;
-          }
-          .control-heading {
-               margin: 10px 0;
           }
      }
 }
