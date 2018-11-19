@@ -192,9 +192,9 @@ main {
     .menu-bar-settings input[type=range] {
       width: 100%; }
   .menu-bar-logo {
-    width: 20%; }
+    width: 30%; }
   .menu-bar h1 {
-    font-size: 4rem;
+    font-size: 4.5rem;
     margin: 5px 0; }
 
 .buttons {
@@ -266,7 +266,6 @@ input[type=range]::-ms-track {
   border-color: transparent;
   color: transparent; }
 
-/* styling for WebKit/Blink */
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: 1px solid #000000;
@@ -276,12 +275,10 @@ input[type=range]::-webkit-slider-thumb {
   border-radius: 50%;
   background: #ffffff;
   cursor: pointer;
-  margin-top: -14px;
+  margin-top: -9px;
   -webkit-box-shadow: 1px 1px 0px #FAFAFA, 2px 2px 0px #000000;
-  box-shadow: 1px 1px 0px #FAFAFA, 2px 2px 0px #000000;
-  /* Add cool effects to your sliders! */ }
+  box-shadow: 1px 1px 0px #FAFAFA, 2px 2px 0px #000000; }
 
-/* All the same stuff for Firefox */
 input[type=range]::-moz-range-thumb {
   box-shadow: 1px 1px 0px #FAFAFA, 2px 2px 0px #000000;
   border: 1px solid #000000;
@@ -292,7 +289,6 @@ input[type=range]::-moz-range-thumb {
   background: #ffffff;
   cursor: pointer; }
 
-/* All the same stuff for IE */
 input[type=range]::-ms-thumb {
   box-shadow: 1px 1px 0px #FAFAFA, 2px 2px 0px #000000;
   border: 1px solid #000000;
@@ -347,8 +343,8 @@ input[type=range]::-webkit-slider-runnable-track {
   -webkit-box-shadow: 1px 1px 0px #000000;
   box-shadow: 1px 1px 0px #000000;
   background: #FAFAFA;
-  border-radius: 1.3px;
-  border: 0.2px solid #010101; }
+  border-radius: 10px;
+  border: 1px solid #010101; }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
   background: #FAFAFA; }
@@ -359,7 +355,6 @@ input[type=range]::-moz-range-track {
   cursor: pointer;
   box-shadow: 1px 1px 0px #000000;
   background: #FAFAFA;
-  border-radius: 1.3px;
   border: 1px solid #010101;
   border-radius: 10px; }
 
@@ -373,7 +368,7 @@ input[type=range]::-ms-track {
   color: transparent; }
 
 input[type=range]::-ms-fill-lower {
-  background: #2a6495;
+  background: #FAFAFA;
   border: 1px solid #010101;
   border-radius: 50%;
   box-shadow: 1px 1px 0px #000000; }
@@ -572,3 +567,8 @@ input[type=range]:focus::-ms-fill-upper {
     transition-duration: 0.3s, 0.3s; }
   .menu-bar-logo {
     width: 70%; } }
+
+@media (max-width: 400px) {
+  .menu-bar h1 {
+    font-size: 3.3rem;
+    margin-top: 10px; } }

@@ -61,3 +61,13 @@
            }
      }
 }
+
+@media (max-width: 400px) {
+    .menu-bar {
+        h1 {
+            font-size: 3.3rem;
+            margin-top: 10px;
+            // border-bottom: 1px solid black;
+        }
+    }
+}
